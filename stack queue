@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int queue[5];
+    int front = 0, rear = -1;
+    int choice, value;
+
+    do
+    {
+        cout << "\n1. Enqueue";
+        cout << "\n2. Dequeue";
+        cout << "\n3. Display";
+        cout << "\n4. Exit";
+        cout << "\nEnter choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {
+            if (rear == 4)
+                cout << "Queue is full";
+            else
+            {
+                cout << "Enter value: ";
+                cin >> value;
+                rear++;
+                queue[rear] = value;
+            }
+        }
+
+        else if (choice == 2)
+        {
+            if (front > rear)
+                cout << "Queue is empty";
+            else
+            {
+                cout << "Deleted: " << queue[front];
+                front++;
+            }
+        }
+
+        else if (choice == 3)
+        {
+            if (front > rear)
+                cout << "Queue is empty";
+            else
+            {
+                cout << "Queue: ";
+                for (int i = front; i <= rear; i++)
+                    cout << queue[i] << " ";
+            }
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
